@@ -62,7 +62,7 @@ note - function of argument is first function (of setTimeoutPromisified )
         // idea is that the function by which promise instance create is performe async task(takes time to execute)
     }
 
-    const p=readFile;
+    const p=readFile; 
 
     function callback(contents){
       console.log(contents);
