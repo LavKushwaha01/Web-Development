@@ -2,7 +2,7 @@ script section is developer scripted part where we define by which keywords or s
 
 and this is just meta data main section is where file is started
 
- "keywords": [],
+ "keywords":[],
   "author": "",
   "license": "ISC",
   "description": " "
