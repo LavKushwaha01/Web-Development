@@ -1,0 +1,36 @@
+# External packages
+
+These are packages written and maintained by other people. You just use their work in your project.
+
+For example
+
+1. Express
+2. chalk
+
+You can read more about them on their `npm page` - 
+
+https://www.npmjs.com/package/chalk
+
+Sometimes they are open source as well -
+
+https://github.com/chalk/chalk
+
+### Semantic Versioning Format
+
+Every external package is updated incrementally. A specific version looks something like follows - 
+
+```jsx
+"chalk": "^5.3.0"
+```
+
+The format is as follows - `MAJOR.MINOR.PATCH`
+
+- MAJOR -  Major version changes indicate significant updates or breaking changes.
+- MINOR -  Minor version changes signify the addition of new features or improvements in a backward-compatible manner.
+- PATCH - Patch version changes include backward-compatible bug fixes or minor improvements that address issues without adding new features or causing breaking changes.
+
+### Usage in `package.json`
+
+- `“chalk”: “^5.3.0”` - npm will install any version that is compatible with `5.3.0` but less than `6.0.0`. This includes versions like `5.3.1`, `5.4.0`, `5.5.0`, etc.
+- `“chalk”: “5.3.0”` - Will install the exact version
+- `"chalk": "latest"` - Will install the latest version
