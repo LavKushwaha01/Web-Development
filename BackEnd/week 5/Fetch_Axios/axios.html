@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="posts"></div>
+  <script>
+    // // this is js of axios taek extra spaces.. but make  easy syntex
+    async function fetchPosts() {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");  // just syntax differ from fetch 
+      // await is means can't proceed until data is take from that api server 
+      document.getElementById("posts").innerHTML = res.data.title;   //  can use data.title or just res.tittle
+    }
+
+    fetchPosts();
+  </script>
+</body>
+
+</html>
