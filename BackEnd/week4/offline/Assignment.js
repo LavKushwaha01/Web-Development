@@ -15,7 +15,7 @@ app.use(function(res,req,next){
 
 let NumberOfRequestForUser={}
 setInterval({
-    NumberOfRequestForUser={}
+    NumberOfRequestForUser:{}
 },1000)
 
 app.use(function(req,res,next){
