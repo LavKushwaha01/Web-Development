@@ -5,8 +5,12 @@
 // const express = require("express");
 // const cors = require("cors");  
 // const app = express();
-// app.use(cors());  // use this if we allow to access all the frontend page to access our backend;
-// // and in array of url if we want to block those sites we enter those in it
+// app.use(cors());  
+
+//********
+// app.use(cors(){
+//     hosts: ["google.com", "random.com"] // this is another way by which we allow our backend to acces via these hosts of frontend
+// })
 
 // app.get("/sum", function(req, res) {
 //     console.log(req.name);
