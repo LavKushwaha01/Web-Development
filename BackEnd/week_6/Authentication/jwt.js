@@ -37,7 +37,9 @@ app.post("/signin", (req, res) => {
         const token = jwt.sign({                        //convert their username to jwt by using the .sign
             username: username                          //idhar jisko convert krna tha woh add krenge like meko username ko encode krna tha toh isliye i had added only username 
         }, JWT_SECRET);
-
+         
+        res.header("jwt" , token);   // send headers to users 
+         
         res.json({
             token: token,
             message: "Signed in"
