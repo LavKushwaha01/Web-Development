@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const {Usermodel,Todomodel} = require("./bd")
+const {Usermodel,Todomodel} = require("./db")
 
 mongoose.connect("mongodb+srv://lavkumar062:SxvMKIyMlAA5EyyU@cluster0.v4ibkbc.mongodb.net/Todo-App")
 
