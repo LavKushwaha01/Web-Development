@@ -3,7 +3,9 @@
     "bcrypt": "^5.1.1",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "mon": "^0.0.8",
     "mongoose": "^8.13.1",
+    "node": "^18.20.8",
     "zod": "^3.24.2"
   },
   "name": "web-devlopment",
