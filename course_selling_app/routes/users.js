@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 const {JWT_USER_PASSWORD} = require("../configue");
 
 
-userRouter("/signup", async function(req,res){
+userRouter.post("/signup", async function(req,res){
    const {email,password,firstName,lastName} = req.body;
 
   await userModel.create({
@@ -27,7 +27,7 @@ userRouter("/signup", async function(req,res){
 
 });
 
-userRouter("/signin", async function(req,res){
+userRouter.post("/signin", async function(req,res){
     const { email, password } = req.body;
    
     const user = await userModel.findOne({  // find function returns you lenght of matching data which could be empty[] array

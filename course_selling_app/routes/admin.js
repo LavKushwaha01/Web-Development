@@ -12,7 +12,7 @@ const{JWT_ADMIN_PASSWORD} = require("../configue")
 
 
 
-adminRouter("/signup", async function(req,res){
+adminRouter.post("/signup", async function(req,res){
     const {email,password,firstName,lastName} = req.body;
 
     await adminModel.create({
@@ -30,7 +30,7 @@ adminRouter("/signup", async function(req,res){
 
 
 
-adminRouter("/signin" , async function( req, res){
+adminRouter.post("/signin" , async function( req, res){
     const { email, password } = req.body;
    
     const admin = await adminModel.findOne({  // find function returns you lenght of matching data which could be empty[] array
