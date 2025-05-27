@@ -1,0 +1,11 @@
+npm install -D tailwindcss@3 postcss autoprefixer
+
+npx tailwindcss init -p
+
+add   './index.html', 
+    './src/**/*.{vue,js,ts,jsx,tsx}'   to tailwind.config in content section
+
+    and remove all content from index.css and app.css and paste /* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
