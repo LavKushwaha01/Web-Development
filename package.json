@@ -7,6 +7,7 @@
     "mongoose": "^8.13.1",
     "node": "^18.20.8",
     "react-native-google-places-autocomplete": "^2.5.7",
+    "typescript": "^5.8.3",
     "zod": "^3.24.2"
   },
   "name": "web-devlopment",
@@ -18,8 +19,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    
-  }
+  "description": ""
 }

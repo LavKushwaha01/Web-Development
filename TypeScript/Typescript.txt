@@ -1,0 +1,28 @@
+1st install typescript globally
+
+by run command npm install typescript
+
+then initalize typescript in your folder by run command
+ tsc --init
+
+then in your directory create .ts file and for compiling it to js
+use npx tsc -b command
+
+
+tsconfig.json 
+
+target section is version controller or which version our code is supporting
+
+these two has to be added in tsconfig.json in compileroption section
+
+ "rootDir": "./src",      indicate where is my ts file
+    "outDir": "./dist",   show where js file has to be created   
+
+    now add this dist to gitignore to avoid push js file in github
+
+    noImplicitiley : true  means if not given datatype then any is not apply automaticaly if it false then if no any data type given then it's any
+    it's true by default
+
+    if removecomment set to true then js is created without comment of ts
+
+    ********you can't create function with same name in a samne directory ******
