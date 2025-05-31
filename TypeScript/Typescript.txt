@@ -3,7 +3,7 @@
 by run command npm install typescript
 
 then initalize typescript in your folder by run command
- tsc --init
+npx tsc --init
 
 then in your directory create .ts file and for compiling it to js
 use npx tsc -b command
