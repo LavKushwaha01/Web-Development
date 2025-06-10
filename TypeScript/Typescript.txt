@@ -26,3 +26,6 @@ these two has to be added in tsconfig.json in compileroption section
     if removecomment set to true then js is created without comment of ts
 
     ********you can't create function with same name in a samne directory ******
+
+
+    *** edit package.json as  script {"dev": "tsc -b  && node ./dist/index.js",} now by just "npm run dev" index.js will run
