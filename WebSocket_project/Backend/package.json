@@ -1,17 +1,17 @@
 {
-  "name": "02_ping_pong_app",
+  "name": "websocket_project",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -b &&  node ./dist/index.js"
+    "dev": "tsc -b && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "typescript": "^5.7.2",
-    "ws": "^8.18.0"
+    "typescript": "^5.8.3",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "@types/ws": "^8.18.1"

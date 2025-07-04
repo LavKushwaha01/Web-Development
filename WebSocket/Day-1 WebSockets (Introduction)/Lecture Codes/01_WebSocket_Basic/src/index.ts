@@ -5,7 +5,7 @@ const wss = new WebSocketServer({ port: 8000 });
 
 // This is an event handler for managing WebSocket connections
 // Similar to how HTTP servers have app.get or app.post, here we handle WebSocket events
-wss.on("connection", function(socket) { // Executes only when a connection is established
+wss.on("connection", function(socket: { send: (arg0: string) => void; on: (arg0: string, arg1: (message: any) => void) => void; }) { // Executes only when a connection is established
     console.log("User Connected!"); // Displays this message in the terminal whenever a client (e.g., Postman) connects
 
     // Setting up a function to send data to the client at regular intervals

@@ -7,7 +7,7 @@ function App() {
   const [socket, setSocket] = useState();
 
   // Declare a reference for the input element to get its value
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Function to send the message when the button is clicked
   function sendMessage(){
@@ -16,10 +16,10 @@ function App() {
       return
     }
     
-    // @ts-ignore: Ignore TypeScript errors for now (inputRef might be null or undefined)
+    // @ts-expect-error: Ignore TypeScript errors for now (inputRef might be null or undefined)
     const message = inputRef.current.value; // Get the value of the input field
     
-    // @ts-ignore: Ignore TypeScript errors for socket if not properly typed
+    // @ts-expect-error: Ignore TypeScript errors for socket if not properly typed
     socket.send(message); // Send the message through the WebSocket
   }
 
@@ -28,7 +28,7 @@ function App() {
     // Create a new WebSocket connection to the server
     const ws = new WebSocket("ws://localhost:8000");
 
-    // @ts-ignore: Ignore TypeScript errors for setSocket method if not typed properly
+    // @ts-expect-error: Ignore TypeScript errors for setSocket method if not typed properly
     setSocket(ws); // Set the WebSocket connection to state
 
     // Event listener for receiving messages from the WebSocket server

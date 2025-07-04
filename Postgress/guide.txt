@@ -1,0 +1,2 @@
+after installing typescript use command
+npm install pg @types/pg
