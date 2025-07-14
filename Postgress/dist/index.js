@@ -32,13 +32,23 @@ pgClient.connect();
 //  console.log(response.rows);
 // }
 // main()
+// if we put directly username , password and email in query without array then query injection can destroy our data
 app.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
+    const city = req.body.city;
+    const country = req.body.country;
+    const street = req.body.street;
+    const pincode = req.body.pincode;
     try {
-        const insertQuery = 'INSERT INTO users (username , email, password ) VALUES ($1, $2, $3);';
+        const insertQuery = 'INSERT INTO users (username , email, password ) VALUES ($1, $2, $3) RETURNING id;';
+        const addressInsertQuery = 'INSERT INTO addresses (city, country,  street , pincode, user_id) VALUES ($1, $2, $3 , $4 , $5);';
+        yield pgClient.query('BEGIN');
         const response = yield pgClient.query(insertQuery, [username, email, password]);
+        const userId = response.rows[0].id;
+        const addressInsertQueryresponse = yield pgClient.query(addressInsertQuery, [city, country, street, pincode, userId]);
+        yield pgClient.query('COMMIT');
         res.json({
             message: "you have signed up"
         });
@@ -49,5 +59,13 @@ app.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             message: "signup failed"
         });
     }
+}));
+app.get("/metadata", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.query.id;
+    const query = 'SELECT users.id , users.username, users.email, addresses.city, addresses.street, addresses.pincode, addresses.country FROM users JOIN addresses On users.id= addresses.user_id WHERE users.id = $1 ';
+    const response = yield pgClient.query(query, [id]);
+    res.json({
+        response: response.rows
+    });
 }));
 app.listen(3000);

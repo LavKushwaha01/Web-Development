@@ -1,6 +1,7 @@
 import { Client, QueryResult } from "pg"
 import express from "express";
 import { log } from "node:console";
+import { z } from "zod";
 
 const app = express();
 app.use(express.json());
@@ -34,9 +35,28 @@ app.post("/signup" , async (req,res) =>{
    const password = req.body.password;
    const email = req.body.email;
 
+   const city = req.body.city;
+   const country = req.body.country;
+   const street = req.body.street;
+   const pincode = req.body.pincode;
+
+
   try{
-   const insertQuery = 'INSERT INTO users (username , email, password ) VALUES ($1, $2, $3);'
-   const response = await pgClient.query(insertQuery, [username, email , password])
+
+
+   const insertQuery = 'INSERT INTO users (username , email, password ) VALUES ($1, $2, $3) RETURNING id;'
+    const addressInsertQuery = 'INSERT INTO addresses (city, country,  street , pincode, user_id) VALUES ($1, $2, $3 , $4 , $5);'
+
+  await  pgClient.query('BEGIN');
+    
+   const response = await pgClient.query(insertQuery, [username, email , password]);
+
+   const userId = response.rows[0].id;
+
+    const addressInsertQueryresponse = await pgClient.query(addressInsertQuery, [city, country,  street, pincode, userId])
+
+   await pgClient.query('COMMIT');
+
    res.json({
     message:"you have signed up"
    })
@@ -48,6 +68,17 @@ app.post("/signup" , async (req,res) =>{
        })
        
    }
+})
+
+app.get("/metadata" , async (req, res) => {
+    
+    const id = req.query.id;
+    // use LEFT RIGHT INNER AND FULL ACCORDING TO NEED
+    const query = 'SELECT users.id , users.username, users.email, addresses.city, addresses.street, addresses.pincode, addresses.country FROM users  JOIN addresses On users.id= addresses.user_id WHERE users.id = $1 ';
+    const response = await pgClient.query(query, [id]);
+    res.json({
+        response:response.rows
+    })
 })
 
 app.listen(3000);
