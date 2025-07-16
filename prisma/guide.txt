@@ -1,0 +1,30 @@
+initiallize typescript
+
+npm install typescript
+npx tsc --init
+
+edit package.json as add script "dev" : "tsc -b  && node  ./dist/index/.js
+
+-------------------
+for prisma 
+npm install prisma
+npx prisma init
+
+then start a db on neo.tech and copy string url put it in .env and connect it in schema.prisma bd.url section
+
+** create model and put your table schema there
+
+then run -- npx prisma migrate dev
+
+***now if we want to change anything in our datebase just modify our chenge prisma file and remigrtae it
+
+create todo and user table 
+
+*******if we add new row after some entry we have to choice either we can set it optional i.e previous all is null and now any enryr have to value of this row
+or we can set it default as now that everywehere fill this currenlty uodated value
+
+------------ to connect backend with prisma 
+1st run npx prisma generate  .. this will generate client automatically which we need to import in ts file
+then simply create our entry in table...
+
+npm install express @types/express
