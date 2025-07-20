@@ -1,0 +1,15 @@
+for install next
+
+npx create-next-app@latest 
+
+and select tailwind , router , typescipt and esroute as yes then next is ready
+
+inside our folder page.tsx is our entry point
+
+1* next is file based routing means if we create a folder inside app as user and then a file page.tsx then this 
+   code is reflected on localhost://3000/user
+2* Server side rendering
+
+** layout is use for navbar and which section which we need to render to all pages
+
+** create 1st landing page low time consuming so that no need to loading
